@@ -111,8 +111,6 @@ colo ir_black
 " colo gardener
 " }}}
 
-source $HOME/.vim/curlyC.vim
-
 " Maps: {{{
 nmap <Esc>jk :. s/@/_AT_/<CR> :. s/\./ dot /g<CR> :/blah<CR>
 "map <buffer> ,w /p5-\([^/]\+\)/<CR> :. /[A-Z][\w-]\+/y k<CR>
