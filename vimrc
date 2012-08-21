@@ -1,3 +1,19 @@
+" From vgod's vimrc
+" For pathogen.vim: auto load all plugins in .vim/bundle
+
+let g:pathogen_disabled = []
+if !has('gui_running')
+   call add(g:pathogen_disabled, 'powerline')
+endif
+
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" ignore these files while expanding wild chars
+set wildignore=*.o,*.class,*.pyc
+
+" End vgod's vimrc
+
 if has("win32")
     let g:OS = "windows"
 elseif has("unix")
