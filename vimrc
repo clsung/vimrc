@@ -252,4 +252,7 @@ augroup python
     endfunction
     autocmd FileType python call _python()
 augroup END
+
+" scala
+au BufRead,BufNewFile *.scala set filetype=scala
 let python_highlight_all = 1
