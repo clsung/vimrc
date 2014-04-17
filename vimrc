@@ -1,19 +1,3 @@
-" From vgod's vimrc
-" For pathogen.vim: auto load all plugins in .vim/bundle
-
-let g:pathogen_disabled = []
-if !has('gui_running')
-   call add(g:pathogen_disabled, 'powerline')
-endif
-
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
-" ignore these files while expanding wild chars
-set wildignore=*.o,*.class,*.pyc
-
-" End vgod's vimrc
-
 if has("win32")
     let g:OS = "windows"
 elseif has("unix")
@@ -49,7 +33,7 @@ hi MatchParen ctermbg=yellow
 set shiftround
 set writeany autoread autowrite
 " Tabkey: {{{
-set tabstop=8               " so tabs look right for us 
+set tabstop=4               " so tabs look right for us 
 set noexpandtab
 set softtabstop=4
 set backspace=2
@@ -222,6 +206,17 @@ augroup cplusplus
     autocmd FileType c,cpp call _cplusplus()
 augroup END
 
+augroup go
+	autocmd!
+	function! _go()
+		set shiftwidth=4
+		set softtabstop=4
+		set tabstop=4
+	endfunction
+	autocmd FileType go call _go()
+    autocmd FileType go map <leader>t :Tmux go test<CR>
+augroup END
+
 augroup perl
     autocmd!
     function! _perl()
@@ -255,4 +250,10 @@ augroup END
 
 " scala
 au BufRead,BufNewFile *.scala set filetype=scala
+
 let python_highlight_all = 1
+
+
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+" <leader>p toggles paste mode
+nmap <leader>p :set paste!<BAR>set paste?<CR>
