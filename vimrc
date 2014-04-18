@@ -1,3 +1,8 @@
+execute pathogen#infect()
+
+" ignore these files while expanding wild chars
+set wildignore=*.o,*.class,*.pyc,*~
+
 if has("win32")
     let g:OS = "windows"
 elseif has("unix")
