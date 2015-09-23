@@ -262,3 +262,4 @@ let python_highlight_all = 1
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 " <leader>p toggles paste mode
 nmap <leader>p :set paste!<BAR>set paste?<CR>
+let g:go_fmt_command = "goimports"
